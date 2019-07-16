@@ -6,8 +6,8 @@ exports.up = function(knex) {
       .notNullable()
       .unique();
     tbl.string("make", 255).notNullable();
-    tbl.integer("model").notNullable();
-    tbl.integer("mileage").notNullable();
+    tbl.integer("model", 11).notNullable();
+    tbl.integer("mileage", 11).notNullable();
     tbl.string("type", 255);
     tbl.string("status", 255);
     tbl.timestamps(false, true);
