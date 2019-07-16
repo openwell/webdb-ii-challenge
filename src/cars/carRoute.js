@@ -27,4 +27,28 @@ router.post("/", (req, res) => {
   }
 });
 
+router.put("/:id", (req, res) => {
+  try {
+    db.update(req.params.id, req.body).then(data => {
+      return res.status(200).json({
+        data: data
+      });
+    });
+  } catch (err) {
+    return res.status(500).send(err);
+  }
+});
+
+router.delete("/:id", (req, res) => {
+  try {
+    db.remove(req.params.id).then(data => {
+      return res.status(200).json({
+        data: data
+      });
+    });
+  } catch (err) {
+    return res.status(500).send(err);
+  }
+});
+
 module.exports = router;
