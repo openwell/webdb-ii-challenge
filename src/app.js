@@ -1,10 +1,13 @@
 const express = require("express");
 const helmet = require("helmet");
 
+const carsRoute = require("./cars/carRoute");
+
 const server = express();
 server.use(express.json());
 
 server.use(logger, helmet());
+server.use("/api/cars", carsRoute);
 
 server.get("/", (req, res) => {
   res.send(`<h2>Let's write some middleware!</h2>`);
