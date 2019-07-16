@@ -15,4 +15,16 @@ router.get("/", (req, res) => {
   }
 });
 
+router.post("/", (req, res) => {
+  try {
+    db.insert(req.body).then(data => {
+      return res.status(201).json({
+        data: data
+      });
+    });
+  } catch (err) {
+    return res.status(500).send(err);
+  }
+});
+
 module.exports = router;
